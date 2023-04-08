@@ -1,4 +1,5 @@
-﻿/*Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
+﻿/*Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, 
+второй и предпоследний и т.д. Результат запишите в новом массиве.
 [1 2 3 4 5] -> 5 8 3
 [6 7 3 6] -> 36 21*/
 
@@ -32,16 +33,30 @@ int Num (string arg)
 
 void PositivSum (int [] numbers)
 {
-    int count = 0;
-    for (int i = 0; i < numbers.Length; i++)
+    int count = numbers.Length-1;
+    int work = 0;
+    for (int i = 0; i < numbers.Length/2; i++)
     {
-        if(numbers[i] <=99 && numbers[i] >= 10)
+        work = numbers[i] * numbers[count];
+        count--;
+        System.Console.WriteLine(work);
+        /*if (numbers.Length % 2 == 0)
         {
-            count++;
+            break;
         }
+        else System.Console.WriteLine(numbers[numbers.Length/2+1]);*/
     }
-    System.Console.WriteLine(count);
+    
 }
+
+int Length = Num("длину массива");
+int min = Num("меньшее число");
+int max = Num("максимальное число");
+int [] numbers = CreateArray(Length, min, max);
+PrintArray(numbers);
+PositivSum(numbers);
+
+
 
 /*int Length = Num("длину массива");
 int min = Num("меньшее число");
@@ -49,10 +64,7 @@ int max = Num("максимальное число");
 int num = Num("Искомое число");
 int [] numbers = CreateArray(Length, min, max);
 PrintArray(numbers);
-System.Console.WriteLine(PositivSum(numbers, num));
-int [] numbers = CreateArray(Length, min, max);
-PrintArray(numbers);
-PositivSum(numbers);*/
+System.Console.WriteLine(PositivSum(numbers, num));*/
 
 
 
